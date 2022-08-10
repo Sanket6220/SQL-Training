@@ -39,7 +39,7 @@ create table EMP
 select * from EMP where EName like 'a%'
 
 --2)
-select * from EMP where JOB != 'MANAGER'
+select * from EMP where MGRID is null
 
 --3)
 select EName ,EMPNO ,SALARY from EMP where SALARY between 1200 and 1400
