@@ -77,9 +77,10 @@ select EName , SALARY , COMM ,(SALARY+ SALARY * 0.1) as 'SALARY RAISED BY 10%' f
 select EName , DEPTNO , MGRID from EMP where EName like '%l%l%' and (DEPTNO = 30 or MGRID = 7782)
 
 --16)
-select EName from EMP 
+select EName from EMP where DATEDIFF (YEAR, HIREDATE , GETDATE())> 10 and DATEDIFF (YEAR, HIREDATE , GETDATE())<20
 
 --17) 
 select DEPT.DName , EMP.EName from EMP , DEPT where EMP.DEPTNO = DEPT.DEPTNO order by DName asc , EName desc 
 
 --18)
+select EName , DATEDIFF(YEAR ,HIREDATE, GETDATE()) as 'EXPERIENCE IN YEARS' from EMP where EName ='MILLER' 
