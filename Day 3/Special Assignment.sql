@@ -37,12 +37,13 @@ check(Actual_End_Date>Planned_End_Date)
 )
 
 create table EMPProjectTasks(
-projectID int  foreign key references projects (projectID),
-EmpNo int not null primary key foreign key references employees (EmpNo),
+projectID int references projects (projectID),
+EmpNo int  references employees (EmpNo),
 Start_Date date,
 End_Date date,
 Task varchar(25) not null,
 Status varchar(15) not null,
+primary key(projectID,EmpNo)
 )
 
 -----------------------------------------------------------------------------------------------------------------------------------
