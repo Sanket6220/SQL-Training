@@ -182,7 +182,31 @@ select Reverse(Sname) as RevserseName,UPPER(location) as Locatiion from studentd
 --------------------------------------------------------------------------------------------------------------------------------------------
 
 --11)
+create table orderr(
+ID int primary key,
+OrderDate date,
+OrderNumber int,
+CustomerID int,
+totalamount int,
+)
+create table orderitem(
+ID int primary key,
+OrderID int ,
+ProductID int,
+UnitPrice int ,
+Quantity int
+)
+create table Product(
+ID int primary key,
+ProductName varchar(30),
+SupplierID int,
+Package varchar(30),
+isDiscontinued varchar(5)
+)
 
+create view Orderview as select ProductName ,Quantity,Ordernumber from
+orderr O, orderitem I , Product P where O.ID = I.ID and O.ID = P.ID
+select *from Orderview
 
 
 ----------------------------------------------------------------------------------------------------------------------------------------------
